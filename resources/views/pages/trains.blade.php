@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page_title', 'Trains List')
+
 @section('content')
     
 <section class="trains py-5">
