@@ -21,9 +21,17 @@
                         <div>Arrivo alle: {{$train->arrive_time}}</div>
                         <div>Codice treno: {{$train->train_code}}</div>
                         <div>Numero di carrozze: {{$train->carriage_number}}</div>
-                        <div>Ritardo: {{ 'In orario' ? $train->in_time : 'In ritardo'}}</div>
-                        @if ($train->deleted)
+
+                        @if ($train->in_time)
+
+                            <div>Stato: In orario</div>
+
+                        @elseif ($train->deleted)
+
                             <strong>Treno Cancellato</strong>
+
+                        @else
+                            <div>Stato: In ritardo</div>
                         @endif
                     </div>
                     {{-- /.card-body --}}
@@ -34,7 +42,7 @@
             </div>
             <!-- /.col -->
             @empty
-                
+                <div>Nessun treno disponibile ancora,torna più tardi</div>
             @endforelse
         </div>
         <!-- /.row -->
