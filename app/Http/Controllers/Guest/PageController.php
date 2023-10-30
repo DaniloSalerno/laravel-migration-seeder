@@ -10,7 +10,9 @@ class PageController extends Controller
 {
     public function index()
     {
-        return view('index');
+        //volevo trovare un modo per ordinarli in ordine crescente di orario a partire dall'orario attuale
+        $departing_trains = Train::orderBy('start_time')->limit(4)->get();
+        return view('index', compact('departing_trains'));
     }
 
     public function trains()
