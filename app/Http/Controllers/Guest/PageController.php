@@ -15,7 +15,7 @@ class PageController extends Controller
 
     public function trains()
     {
-        $trains = Train::all();
+        $trains = Train::orderByDesc('id')->paginate(12);
         return view('pages.trains', compact('trains'));
     }
 }

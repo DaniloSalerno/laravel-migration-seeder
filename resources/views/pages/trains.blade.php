@@ -6,7 +6,7 @@
 
     <div class="container">
     
-        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+        <div class="row row-cols-2 row-cols-md-4 g-4">
     
             @forelse ($trains as $train)
             <div class="col">
@@ -46,6 +46,9 @@
             @endforelse
         </div>
         <!-- /.row -->
+
+       <div class="pt-4"> {{$trains->links('pagination::bootstrap-5')}} </div>
+
     </div>
     <!-- /.container -->
 
